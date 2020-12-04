@@ -28,7 +28,6 @@ class SteppingMotor:
   def rotate_with_step(self, step, reverse=False, wait = 0.001):
     self.motor.motor_run(self.GpioPins, wait, step, reverse, False, "half", 0)
 
-
   def calc_step(self, degree):
     if degree <= self.step_degree:
       return 1
@@ -44,8 +43,7 @@ if __name__ == "__main__":
   GpioPins = [17, 18, 27, 22]
   motor = SteppingMotor(GpioPins)
   # 180度回転
-  while True:
-    motor.rotate(50)
-    motor.rotate(50, reverse=True)
+  motor.rotate(50)
+  motor.rotate(50, reverse=True)
 
   GPIO.cleanup()
